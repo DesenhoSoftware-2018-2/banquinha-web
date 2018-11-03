@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InputField from './inputField';
+import CriarMonitoria from '../../actions/criarMonitoria';
 
 class Create extends Component {
 
@@ -28,6 +29,8 @@ class Create extends Component {
           this.state.tag +
           this.state.imagem +
           this.state.data + 'Was submited');
+    CriarMonitoria("10" , this.state.nome, this.state.imagem,
+                   this.state.tag, this.state.data, this.state.conteudo);
     event.preventDefault();
   }
 

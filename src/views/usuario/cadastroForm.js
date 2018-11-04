@@ -23,6 +23,24 @@ class CadastroForm extends Component {
     event.preventDefault();
   }
 
+  validaSenhaConfirmada() {
+    if (this.state.senha !== this.state.senhaConfirmada) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validaCampos() {
+    if (this.state.nome === '' ||
+      this.state.email === '' ||
+      this.state.senha === '') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
     return (
       <div>
@@ -56,8 +74,11 @@ class CadastroForm extends Component {
               value = {this.state.senhaConfirmada}
               handleChange={this.handleChange}
             />
+            <button
+              className="waves-effect waves-light btn-small"
+              onClick={this.handleSubmit}>Cadastrar
+            </button>
           </div>
-           <button className="waves-effect waves-light btn-small" onClick={this.handleSubmit}>Cadastrar</button>
         </form>
       </div>
     )

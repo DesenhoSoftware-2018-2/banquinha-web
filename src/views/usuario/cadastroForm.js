@@ -41,6 +41,23 @@ class CadastroForm extends Component {
     }
   }
 
+  validaEmail() {
+    const inicio = 1;
+    const caracteresMin = 2;
+
+    // check @ not starting the emailAdress
+    const atSymbol = this.state.email.indexOf('@');
+    if (atSymbol < inicio) return false;
+
+    // check emailAdress to have . and to have at least 2 characters between @ and .
+    const dot = this.state.email.indexOf('.');
+    if (dot <= atSymbol + caracteresMin) return false;
+
+    // check that the dot is not at the end
+    if (dot === this.state.userEmail.length - inicio) return false;
+    return true;
+  }
+
   render() {
     return (
       <div>

@@ -58,6 +58,25 @@ class CadastroForm extends Component {
     return true;
   }
 
+  validaSubmissao() {
+    const invalido = false;
+    const campos = this.validaCampos();
+    const senha = this.validaSenhaConfirmada();
+    const email = this.validaEmail();
+    if (campos === invalido) {
+      alert('Preencha todos os campos corretamente');
+      return false;
+    } else if (senha === invalido) {
+      alert('As senhas não correspondem');
+      return false;
+    } else if (email === invalido) {
+      alert('Email inválido');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   render() {
     return (
       <div>

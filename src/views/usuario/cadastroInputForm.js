@@ -4,10 +4,10 @@ class CadastroInputForm extends Component {
 
   render() {
     return(
-      <label>
-        {this.props.placeholder}
-        <input name={this.props.name} type={this.props.type} onChange={this.props.handleChange} />
-      </label>
+      <div className="input-field">
+          <input id={this.props.name} type={this.props.type} onChange={this.props.handleChange} class="validate"/>
+          <label for={this.props.name}>{this.props.placeholder}</label>
+      </div>
     );
   }
 }

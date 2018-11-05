@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import InputField from './inputField';
+import InputField from '../../components/CriarMonitoria/inputField';
 import CriarMonitoria from '../../actions/criarMonitoria';
+import SideNav from '../../components/sidenav/sidenav';
 
 class Create extends Component {
 
@@ -19,26 +20,58 @@ class Create extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.name + 'value' + event.target.value)
     this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
-    alert(this.state.nome + 'And' +
-          this.state.conteudo +
-          this.state.tag +
-          this.state.imagem +
-          this.state.data + 'Was submited');
-    CriarMonitoria("10" , this.state.nome, this.state.imagem,
-                   this.state.tag, this.state.data, this.state.conteudo);
+    const valido = true;
+    const cadastroValido = this.validaCadastro();
+    if(cadastroValido === valido) {
+      alert(this.state.nome + 'And' +
+            this.state.conteudo +
+            this.state.tag +
+            this.state.imagem +
+            this.state.data + 'Was submited');
+      CriarMonitoria("10" , this.state.nome, this.state.imagem,
+                     this.state.tag, this.state.data, this.state.conteudo);
+    }
     event.preventDefault();
   }
+
+  isEmptyOrSpaces(str){
+    return str === null || str.match(/^ *$/) !== null;
+  }
+
+  validaCampos() {
+    if (this.isEmptyOrSpaces(this.state.nome) ||
+        this.isEmptyOrSpaces(this.state.conteudo) ||
+        this.isEmptyOrSpaces(this.state.tag) ||
+        this.isEmptyOrSpaces(this.state.imagem) ||
+        this.isEmptyOrSpaces(this.state.data)){
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  validaCadastro() {
+    const invalido = false;
+    const campos = this.validaCampos();
+    if (campos === invalido) {
+      alert('Preencha todos os campos corretamente');
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
   render() {
 
     return(
 
       <div>
+        <SideNav />
         <form onSubmit={this.handleSubmit} >
           <InputField
             name="nome"

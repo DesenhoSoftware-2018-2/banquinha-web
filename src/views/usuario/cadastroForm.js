@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import criarUsuario from '../../actions/criarUsuario';
+import CriarUsuario from '../../actions/criarUsuario';
 import CadastroInputForm from './cadastroInputForm';
 
 class CadastroForm extends Component {
@@ -20,6 +20,11 @@ class CadastroForm extends Component {
   }
 
   handleSubmit(event) {
+    const valido = true;
+    const cadastroValido = this.validaCadastro();
+    if(cadastroValido === valido) {
+      CriarUsuario(this.state.nome, this.state.email, this.state.senha);
+    }
     event.preventDefault();
   }
 
@@ -58,7 +63,7 @@ class CadastroForm extends Component {
     return true;
   }
 
-  validaSubmissao() {
+  validaCadastro() {
     const invalido = false;
     const campos = this.validaCampos();
     const senha = this.validaSenhaConfirmada();

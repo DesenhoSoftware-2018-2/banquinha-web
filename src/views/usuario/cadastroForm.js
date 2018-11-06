@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import criarUsuario from '../../actions/criarUsuario';
 import CadastroInputForm from './cadastroInputForm';
+import Sign from "../../components/sign-up/sign-up";
 
 class CadastroForm extends Component {
 
@@ -93,20 +94,25 @@ class CadastroForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
+      <div className="col l6 offset-l3 s12 m8 offset-m2" style={{ marginTop: 50 }}>
         <form >
-          <div className="container" style={{ marginTop: 50 }} >
+        <div className="card large">
+        <div className="center" style={{ paddingTop: 50 }} >
+        <span className="card-title center"> Cadastre-se </span>
+        </div>
+          <div className="container">
             <CadastroInputForm
               name = "nome"
               type = "text"
-              placeholder = "Nome:"
+              placeholder = "Nome"
               value = {this.state.nome}
               handleChange={this.handleChange}
             />
             <CadastroInputForm
               name = "email"
               type = "text"
-              placeholder = "Email:"
+              placeholder = "Email"
               value = {this.state.email}
               handleChange={this.handleChange}
             />
@@ -125,11 +131,17 @@ class CadastroForm extends Component {
               handleChange={this.handleChange}
             />
             <button
-              className="waves-effect waves-light btn-small"
+              className="waves-effect waves-light btn-small left"
+              onClick={this.handleSubmit}>Já tem um cadastro? Faça login
+            </button>
+            <button
+              className="waves-effect waves-light btn-small right"
               onClick={this.handleSubmit}>Cadastrar
             </button>
           </div>
+          </div>
         </form>
+      </div>
       </div>
     )
   }

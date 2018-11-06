@@ -7,7 +7,7 @@ export default () => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact render={props => <HomePage {...props} />} />
-      <Route path="/cadastro" exact render={props => <CadastroForm {...props} />} />
+      <Route path="/cadastro" exact component={CadastroForm} />
       {/* <Route path="/sobre" exact component={TimeLinePage} /> */}
     </Switch>
   </BrowserRouter>

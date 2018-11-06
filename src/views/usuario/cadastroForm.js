@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import CriarUsuario from '../../actions/criarUsuario';
+import criarUsuario from '../../actions/criarUsuario';
 import CadastroInputForm from './cadastroInputForm';
 
 class CadastroForm extends Component {
+
   constructor(props){
     super(props);
     this.state = {
@@ -20,11 +21,14 @@ class CadastroForm extends Component {
   }
 
   handleSubmit(event) {
-    const valido = true;
-    const cadastroValido = this.validaCadastro();
-    if(cadastroValido === valido) {
-      CriarUsuario(this.state.nome, this.state.email, this.state.senha);
-    }
+    //const valido = true;
+    //const cadastroValido = this.validaCadastro();
+    //if(cadastroValido === valido) {
+    const nome = this.state.nome;
+    const email = this.state.email;
+    const senha = this.state.senha;
+    criarUsuario(nome, email, senha);
+    //}
     event.preventDefault();
   }
 
@@ -59,7 +63,7 @@ class CadastroForm extends Component {
     if (dot <= atSymbol + caracteresMin) return false;
 
     // check that the dot is not at the end
-    if (dot === this.state.userEmail.length - inicio) return false;
+    //if (dot === this.state.userEmail.length - inicio) return false;
     return true;
   }
 
@@ -68,16 +72,21 @@ class CadastroForm extends Component {
     const campos = this.validaCampos();
     const senha = this.validaSenhaConfirmada();
     const email = this.validaEmail();
+    console.log("passou das constantes");
     if (campos === invalido) {
       alert('Preencha todos os campos corretamente');
+      console.log("passou da validação do campo");
       return false;
     } else if (senha === invalido) {
       alert('As senhas não correspondem');
+      console.log("passou da validação da senha");
       return false;
-    } else if (email === invalido) {
-      alert('Email inválido');
-      return false;
-    } else {
+    } //else if (email === invalido) {
+      //alert('Email inválido');
+      //return false;
+    //}
+    else {
+      console.log("passou de tudo da validaCadastro");
       return true;
     }
   }
@@ -103,14 +112,14 @@ class CadastroForm extends Component {
             />
             <CadastroInputForm
               name = "senha"
-              type = "text"
+              type = "password"
               placeholder = "Senha:"
               value = {this.state.senha}
               handleChange={this.handleChange}
             />
             <CadastroInputForm
               name = "confirmarSenha"
-              type = "text"
+              type = "password"
               placeholder = "Confirmar senha:"
               value = {this.state.senhaConfirmada}
               handleChange={this.handleChange}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import criarUsuario from '../../actions/criarUsuario';
 import CadastroInputForm from './cadastroInputForm';
-import Sign from "../../components/sign-up/sign-up";
 
 class CadastroForm extends Component {
 
@@ -18,7 +17,7 @@ class CadastroForm extends Component {
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name] : event.target.value });
+    this.setState({ [event.target.id] : event.target.value });
   }
 
   handleSubmit(event) {
@@ -94,13 +93,8 @@ class CadastroForm extends Component {
 
   render() {
     return (
-      <div className="row">
-      <div className="col l6 offset-l3 s12 m8 offset-m2" style={{ marginTop: 50 }}>
-        <form >
-        <div className="card large">
-        <div className="center" style={{ paddingTop: 50 }} >
-        <span className="card-title center"> Cadastre-se </span>
-        </div>
+      <div>
+        <form>
           <div className="container">
             <CadastroInputForm
               name = "nome"

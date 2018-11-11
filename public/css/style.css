@@ -1,0 +1,21 @@
+#createMonitoria {
+  width: 100%;
+  height: 100%;
+  background-color: #787878;
+}
+
+#monitoriaForm {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #DFD9E2;
+}
+
+#createMonitoriaButton {
+  background-color: #FF8000;
+  margin: 0 auto;
+  display: block;
+}
+
+#monitoriaLabel {
+  color: black;
+}

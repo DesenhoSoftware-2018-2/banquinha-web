@@ -70,46 +70,54 @@ class Create extends Component {
 
     return(
 
-      <div>
+      <div id='createMonitoria'>
         <SideNav />
-        <form onSubmit={this.handleSubmit} >
-          <InputField
-            name="nome"
-            type="text"
-            placeholder="Nome:"
-            value={this.state.nome}
-            handleChange={this.handleChange}
-          />
-          <InputField
-            name="conteudo"
-            type="text"
-            placeholder="Conteudo:"
-            value={this.state.conteudo}
-            handleChange={this.handleChange}
-          />
-          <InputField
-            name="tag"
-            type="text"
-            placeholder="Tag:"
-            value={this.state.tag}
-            handleChange={this.handleChange}
-          />
-          <InputField
-            name="imagem"
-            type="file"
-            placeholder="Imagem"
-            value={this.state.imagem}
-            handleChange={this.handleChange}
-          />
-          <InputField
-            name="data"
-            type="datetime-local"
-            placeholder="Data:"
-            value={this.state.data}
-            handleChange={this.handleChange}
-          />
-        <a className="waves-effect waves-light btn-small" onClick={this.handleSubmit}>Cadastrar</a>
-      </form>
+        <div id='monitoriaForm'>
+          <form onSubmit={this.handleSubmit} >
+            <InputField
+              labelId='monitoriaLabel'
+              name="nome"
+              type="text"
+              placeholder="Nome:"
+              value={this.state.nome}
+              handleChange={this.handleChange}
+            />
+            <InputField
+              labelId='monitoriaLabel'
+              name="conteudo"
+              type="text"
+              placeholder="Conteudo:"
+              value={this.state.conteudo}
+              handleChange={this.handleChange}
+            />
+            <InputField
+              labelId='monitoriaLabel'
+              name="tag"
+              type="text"
+              placeholder="Tag:"
+              value={this.state.tag}
+              handleChange={this.handleChange}
+            />
+            <InputField
+              labelId='monitoriaLabel'
+              name="imagem"
+              type="file"
+              placeholder="Selecione uma imagem:"
+              value={this.state.imagem}
+              handleChange={this.handleChange}
+            />
+            <br/>
+            <InputField
+              labelId='monitoriaLabel'
+              name="data"
+              type="datetime-local"
+              placeholder="Data:"
+              value={this.state.data}
+              handleChange={this.handleChange}
+            />
+        </form>
+        <a id='createMonitoriaButton' className="waves-effect waves-light btn-small" onClick={this.handleSubmit}>Cadastrar</a>
+      </div>
     </div>
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CadastroInputForm extends Component {
+class InputForm extends Component {
 
   render() {
     return(
@@ -12,4 +12,4 @@ class CadastroInputForm extends Component {
   }
 }
 
-export default CadastroInputForm;
+export default InputForm;

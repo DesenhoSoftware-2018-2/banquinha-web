@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import criarUsuario from '../../actions/criarUsuario';
+import logarUsuario from '../../actions/logarUsuario';
 import InputForm from './InputForm';
 
-class CadastroForm extends Component {
+class LoginForm extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      nome: '',
       email: '',
       senha: '',
-      senhaConfirmada: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,25 +22,16 @@ class CadastroForm extends Component {
     //const valido = true;
     //const cadastroValido = this.validaCadastro();
     //if(cadastroValido === valido) {
-    const nome = this.state.nome;
     const email = this.state.email;
     const senha = this.state.senha;
-    criarUsuario(nome, email, senha);
+    logarUsuario(email, senha);
     //}
     event.preventDefault();
   }
 
-  validaSenhaConfirmada() {
-    if (this.state.senha !== this.state.senhaConfirmada) {
-      return false;
-    } else {
-      return true;
-    }
-  }
 
   validaCampos() {
-    if (this.state.nome === '' ||
-      this.state.email === '' ||
+    if (this.state.email === '' ||
       this.state.senha === '') {
       return false;
     } else {
@@ -70,7 +59,7 @@ class CadastroForm extends Component {
   validaCadastro() {
     const invalido = false;
     const campos = this.validaCampos();
-    const senha = this.validaSenhaConfirmada();
+    const senha = this.state.senha;
     const email = this.validaEmail();
     console.log("passou das constantes");
     if (campos === invalido) {
@@ -97,13 +86,6 @@ class CadastroForm extends Component {
         <form>
           <div className="container">
             <InputForm
-              name = "nome"
-              type = "text"
-              placeholder = "Nome"
-              value = {this.state.nome}
-              handleChange={this.handleChange}
-            />
-            <InputForm
               name = "email"
               type = "text"
               placeholder = "Email"
@@ -117,20 +99,13 @@ class CadastroForm extends Component {
               value = {this.state.senha}
               handleChange={this.handleChange}
             />
-            <InputForm
-              name = "confirmarSenha"
-              type = "password"
-              placeholder = "Confirmar senha:"
-              value = {this.state.senhaConfirmada}
-              handleChange={this.handleChange}
-            />
             <button
               className="waves-effect waves-light btn-small left"
-              onClick={this.handleSubmit}>Já tem um cadastro? Faça login
+              onClick={this.handleSubmit}>Ainda não tem um cadastro?
             </button>
             <button
               className="waves-effect waves-light btn-small right"
-              onClick={this.handleSubmit}>Cadastrar
+              onClick={this.handleSubmit}>Entrar
             </button>
           </div>
         </form>
@@ -138,4 +113,4 @@ class CadastroForm extends Component {
     )
   }
 }
-export default CadastroForm;
+export default LoginForm;

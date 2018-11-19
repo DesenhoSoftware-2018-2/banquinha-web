@@ -3,7 +3,7 @@ import axios from 'axios';
 const HOST = 'http://localhost:8000/logarUsuario/';
 
 export default function logarUsuario(email, senha){
-    axios.post(`${HOST}`, {
+    axios.get(`${HOST}`, {
       email : email,
       senha : senha
     })

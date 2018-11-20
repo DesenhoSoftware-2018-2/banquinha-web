@@ -10,10 +10,12 @@ class ProfileNavbar extends Component {
     componentDidMount() {
         document.addEventListener('DOMContentLoaded', function() {
             var elems = document.querySelectorAll('.dropdown-trigger');
+            var tooltip = document.querySelectorAll('.tooltipped');
             M.Dropdown.init(elems, {});
+            M.Tooltip.init(tooltip);
         });
     }
-
+    
     render(){
         return(
             <div>
@@ -21,16 +23,11 @@ class ProfileNavbar extends Component {
                     <div className="nav-wrapper">
                     <img className="img-cubo" src={cubo} alt="cubo"/>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a className="orange-text text-darken-4"><i class="far fa-chart-bar"></i></a></li>
-                        <li><a className="orange-text text-darken-4"><i class="far fa-comments"></i></a></li>
-                        <li><a className="orange-text text-darken-4"><i class="far fa-bell"></i></a></li>
-                        <li><a className="dropdown-trigger orange-text text-darken-4" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-                    </ul>
-                    <ul id="dropdown1" class="dropdown-content">
-                        <li><a>one</a></li>
-                        <li><a>two</a></li>
-                        <li class="divider"></li>
-                        <li><a>three</a></li>
+                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Relatório"><i className="far fa-chart-bar"></i></a></li>
+                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Histórico"><i className="far fa-calendar"></i></a></li>
+                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Conversas"><i className="far fa-comments"></i></a></li>
+                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Notificações"><i className="far fa-bell"></i></a></li>
+                        <li><a className="white-text text-darken-4 orange darken-4 tooltipped edit-icon" data-position="bottom" data-tooltip="Editar"><i className="fas fa-pencil-alt icon-pencil"></i></a></li>
                     </ul>
                     </div>
                 </nav>

@@ -22,7 +22,7 @@ class SideNav extends Component{
     
     componentDidMount(){
         var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, {});
+        M.Sidenav.init(elems, {});
 
     }
 

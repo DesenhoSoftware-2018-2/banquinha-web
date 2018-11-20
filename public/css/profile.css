@@ -48,3 +48,42 @@
     margin-left: 8em !important;
 }
 
+.progress-card{ 
+    height: auto;
+    
+    margin-left: 2.8em !important;
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.progress-title{
+    font-weight: bold !important; 
+}
+
+.progress-item{
+    width: 7em;
+    margin-right: 4em;
+}
+
+.progress-total{
+    margin-top: 3em !important;
+    margin-right: 8em !important;
+}
+
+/* .edit-icon{
+    border-radius: 50%;
+    margin-right: 0.5em;
+    margin-left: 1em;
+    margin-top: 0.5em;
+
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+} */
+
+.icon-pencil{
+    /* display: table-cell;
+    vertical-align: middle;
+    text-align: center;  */
+}

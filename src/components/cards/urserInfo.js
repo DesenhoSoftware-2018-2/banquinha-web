@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Lightbox from 'react-images';
 import { connect } from 'react-redux';
 
 const fb = require("../../assets/img/facebook.png");
@@ -12,25 +11,16 @@ class UserInfo extends Component{
 
     constructor(props) {
         super(props);
-        this.state={
-            users: []
-        }
+        this.state={}
     }
     
     render(){
-        const user = this.props.userData;
-
-        if(user.data !== undefined){
-            const img = "www.imagemhost.com.br/images/2018/11/19/calebe.jpg";
-            return(
-                <img className="responsive-img" src="www.imagemhost.com.br/images/2018/11/19/calebe.jpg" />
-            )
-        }
-        
+        const currentUser = this.props.currentUser;        
         return(
             <div className="col s10 m7 left">
                 <div className="card horizontal hoverable card-profile">
                 <div className="card-image">
+                    <img className="responsive-img" alt="perfil" src={currentUser.image} />
                     <div className="social-networks">
                         <img className="img-profile" src={fb} alt="cubo"/>
                         <img className="img-profile" src={insta} alt="cubo"/>
@@ -62,18 +52,16 @@ class UserInfo extends Component{
 }
 
 UserInfo.propTypes = {
-    getUserData: PropTypes.func,
-    userData: PropTypes.object,
+    currentUser: PropTypes.object,
 }
 
 UserInfo.defaultProps = {
-    getUserData() {},
-    userData: {},
+    currentUser: {},
 };
 
 function mapStateToProps(state) {
     return {
-        userData: state.userData,
+        currentUser: state.currentUser,
     }
 }
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
-const URL_API = 'https://api.myjson.com/bins/t5l7u';
+const URL_API = 'https://api.myjson.com/bins/auc9q';
 const HOST = URL_API;
 
 export const FetchUserData = () => {

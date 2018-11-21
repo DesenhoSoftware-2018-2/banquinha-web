@@ -20,26 +20,20 @@ class UserInfo extends Component{
             <div className="col s10 m7 left">
                 <div className="card horizontal hoverable card-profile">
                 <div className="card-image">
-                    <img className="responsive-img" alt="perfil" src={currentUser.image} />
+                    <img className="responsive-img img-profile" alt="perfil" src={currentUser.image} />
                     <div className="social-networks">
-                        <img className="img-profile" src={fb} alt="cubo"/>
-                        <img className="img-profile" src={insta} alt="cubo"/>
-                        <img className="img-profile" src={lkdin} alt="cubo"/>
-                        <img className="img-profile" src={tt} alt="cubo"/>
+                    <a href={currentUser.facebook}><img className="img-profile" src={fb} alt="cubo"/></a>
+                    <a href={currentUser.instagram}><img className="img-profile" src={insta} alt="cubo"/></a>
+                    <a href={currentUser.linkedin}><img className="img-profile" src={lkdin} alt="cubo"/></a>
+                    <a href={currentUser.twitter}><img className="img-profile" src={tt} alt="cubo"/></a>
                     </div>
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5>Calebe Rios</h5>
-                        <h6>Desenvolvedor</h6>
+                        <h5>{currentUser.name}</h5>
+                        <h6>{currentUser.job}</h6>
                         <div className="profile-bio">
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Duis porta iaculis rhoncus. Proin tincidunt felis maximus dolor fermentum, 
-                        vel pulvinar ligula accumsan. Sed a eleifend nisi. Vivamus id lorem dictum, 
-                        porta lacus eu, hendrerit leo. Etiam et libero vitae tortor tincidunt aliquet. 
-                        Cras eget justo pharetra, interdum nunc sed, ullamcorper urna. 
-                        </p>
+                        <p>{currentUser.bio}</p>
                         </div>
                     </div>
                     <div className="card-action">

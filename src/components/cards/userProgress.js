@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import CircularProgressbar from 'react-circular-progressbar';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import 'react-circular-progressbar/dist/styles.css';
 
-const percentage = 50;
 
 class UserProgress extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state={}
+    }
+
     render(){
+        const currentUser = this.props.currentUser;
+        const percentMonitoria = currentUser.avaliacoes.monitorias;
+        const percentMentorado = currentUser.avaliacoes.mentorado;
+        const percentConf = currentUser.avaliacoes.conferencias;
+        const percentGeral = currentUser.avaliacoes.geral;
+
         return(
             <div>
                 <div className="col s10 m7 left">
@@ -18,8 +30,8 @@ class UserProgress extends Component {
                                     <div className="progress-item">
                                         <h6 className="center">Monitoria</h6> 
                                         <CircularProgressbar
-                                            percentage={percentage}
-                                            text={`${percentage}%`}
+                                            percentage={percentMonitoria}
+                                            text={`${percentMonitoria}%`}
                                             strokeWidth={4}
                                             styles={{
                                                 path: { stroke: `orange` },
@@ -30,8 +42,8 @@ class UserProgress extends Component {
                                     <div className="progress-item">
                                     <h6 className="center">Mentorado</h6>
                                         <CircularProgressbar
-                                            percentage={percentage}
-                                            text={`${percentage}%`}
+                                            percentage={percentMentorado}
+                                            text={`${percentMentorado}%`}
                                             strokeWidth={4}
                                             styles={{
                                                 text: { fill: 'black', fontSize: '16px' },
@@ -41,8 +53,8 @@ class UserProgress extends Component {
                                     <div className="progress-item">
                                         <h6 className="center">Conferência</h6>
                                         <CircularProgressbar
-                                            percentage={percentage}
-                                            text={`${percentage}%`}
+                                            percentage={percentConf}
+                                            text={`${percentConf}%`}
                                             strokeWidth={4}
                                             styles={{
                                                 path: { stroke: `purple` },
@@ -53,8 +65,8 @@ class UserProgress extends Component {
                                     <div className="progress-item">
                                         <h6 className="center">Geral</h6>
                                         <CircularProgressbar
-                                            percentage={percentage}
-                                            text={`${percentage}%`}
+                                            percentage={percentGeral}
+                                            text={`${percentGeral}%`}
                                             strokeWidth={4}
                                             styles={{
                                                 path: { stroke: `green` },
@@ -73,4 +85,18 @@ class UserProgress extends Component {
 
 }
 
-export default UserProgress;
+UserProgress.propTypes = {
+    currentUser: PropTypes.object,
+}
+
+UserProgress.defaultProps = {
+    currentUser: {},
+};
+
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser,
+    }
+}
+
+export default connect(mapStateToProps)(UserProgress);

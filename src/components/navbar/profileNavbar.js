@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import M from "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.css";
-
-const cubo = require("../../assets/img/cubo.png");
 
 
 class ProfileNavbar extends Component {
@@ -21,13 +20,14 @@ class ProfileNavbar extends Component {
             <div>
                 <nav className="white">
                     <div className="nav-wrapper">
-                    <img className="img-cubo" src={cubo} alt="cubo"/>
+                    <ul id="nav-mobile" className="left hide-on-med-and-down">
+                        <li><Link to="/relatorio" className="orange-text text-darken-4">Relatórios</Link></li>
+                        <li><Link to="/historico" className="orange-text text-darken-4">Histórico</Link></li>
+                        <li><Link to="/chat" className="orange-text text-darken-4">Conversas</Link></li>
+                    </ul>   
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Relatório"><i className="far fa-chart-bar"></i></a></li>
-                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Histórico"><i className="far fa-calendar"></i></a></li>
-                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Conversas"><i className="far fa-comments"></i></a></li>
-                        <li><a className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Notificações"><i className="far fa-bell"></i></a></li>
-                        <li><a className="white-text text-darken-4 orange darken-4 tooltipped edit-icon" data-position="bottom" data-tooltip="Editar"><i className="fas fa-pencil-alt icon-pencil"></i></a></li>
+                        <li><Link to="/notificacoes" className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Notificações"><i className="far fa-bell"></i></Link></li>
+                        <li><Link to="/editPerfil" className="white-text text-darken-4 orange darken-4">Editar</Link></li>
                     </ul>
                     </div>
                 </nav>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProfileNavbar from '../components/navbar/profileNavbar';
 import UserInfo from '../components/cards/urserInfo';

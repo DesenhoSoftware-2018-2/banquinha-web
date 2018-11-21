@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from "materialize-css/dist/js/materialize.min.js"; 
+import { Link } from 'react-router-dom'
 import "materialize-css/dist/css/materialize.css";
 import StarRatingComponent from 'react-star-rating-component';
 
@@ -33,9 +34,9 @@ class SideNav extends Component{
                     <li>
                         <div className="user-view">
                             <div className="background">
-                                <img src={background} />
+                                <img src={background} alt="background"/>
                             </div>
-                            <a href="#user"><img className="circle" src= {userImage} /></a>
+                            <a href="#user"><img className="circle" src= {userImage} alt="circle"/></a>
                             <a href="#name"><span className="white-text name">name</span></a>
                             <a href="#email"><span className="white-text email">email</span></a>
                         </div>
@@ -63,9 +64,9 @@ class SideNav extends Component{
                     <li><a className="waves-effect" href="#!"><i className="material-icons">info</i>Sobre</a></li>
                     <li><a className="waves-effect" href="#!"><i className="material-icons">exit_to_app</i>Sair</a></li>
                 </ul>
-                <a data-target="slide-out" className="sidenav-trigger sidenav-button waves-effect">  
+                <Link to="/menu" data-target="slide-out" className="sidenav-trigger sidenav-button waves-effect">  
                     <i className="material-icons small">menu</i>         
-                </a>           
+                </Link>           
             </div>
         );
     }

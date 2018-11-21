@@ -21,13 +21,14 @@ class ProfileNavbar extends Component {
                 <nav className="white">
                     <div className="nav-wrapper">
                     <ul id="nav-mobile" className="left hide-on-med-and-down">
+                        <li><Link to="/" className="white-text text-darken-4 orange darken-4">Home</Link></li>
                         <li><Link to="/relatorio" className="orange-text text-darken-4">Relatórios</Link></li>
                         <li><Link to="/historico" className="orange-text text-darken-4">Histórico</Link></li>
                         <li><Link to="/chat" className="orange-text text-darken-4">Conversas</Link></li>
                     </ul>   
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><Link to="/notificacoes" className="orange-text text-darken-4 tooltipped" data-position="bottom" data-tooltip="Notificações"><i className="far fa-bell"></i></Link></li>
-                        <li><Link to="/editPerfil" className="white-text text-darken-4 orange darken-4">Editar</Link></li>
+                        <li><Link to="/editPerfil" className="orange-text text-darken-4">Editar</Link></li>
                     </ul>
                     </div>
                 </nav>

@@ -1,0 +1,99 @@
+.img-cubo{
+    width: 4em;
+    height: auto;
+    margin-left: 2em;
+    margin-top: 0.1em;
+}
+
+.img-profile{
+    border-radius: 50% !important;
+    width: 10em !important;
+    height: auto !important;
+    margin: 1em !important;
+    margin-left: 3em !important;
+}
+
+.card-profile{
+    margin-top: 5em !important;
+    max-width: 50em;
+}
+
+.social-networks{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 2em !important;
+    margin-top: 3em;
+}
+
+.social-networks img{
+    width: 2em !important;
+    height: 2em !important;
+    margin: 0.5em !important;
+}
+
+.profile-bio{
+    margin-top: 2em;
+}
+
+.score-img img{
+    width: 5em !important;
+    margin: 1em !important;
+}
+
+.score-card{
+    margin-top: 5em !important;
+    margin-right: 8em !important;
+    margin-left: 4em !important;
+}
+
+.user-card{
+    margin-left: 8em !important;
+}
+
+.progress-card{ 
+    height: auto;
+    
+    margin-left: 2.8em !important;
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+
+.progress-title{
+    font-weight: bold !important; 
+}
+
+.progress-item{
+    width: 7em;
+    margin-right: 4em;
+}
+
+.progress-total{
+    margin-top: 3em !important;
+    margin-right: 8em !important;
+}
+
+.profile-form {
+    margin-top: 4em !important;
+}
+
+hr.style14 { 
+    margin-top: 5em;
+    margin-bottom: 1em;
+    border: 0; 
+    height: 1px; 
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+  }
+
+  .save-button{
+      margin: 1em;
+      width: 150px;
+    text-align: center;
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 18px;
+  }

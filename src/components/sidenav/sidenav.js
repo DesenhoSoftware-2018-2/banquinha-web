@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 import M from "materialize-css/dist/js/materialize.min.js"; 
-import "materialize-css/dist/css/materialize.css";
 import StarRatingComponent from 'react-star-rating-component';
+import PropTypes from 'prop-types';
 
-const background = require('../../assets/img/paisagem.jpeg');
-const userImage = require('../../assets/img/person.png');
+import "materialize-css/dist/css/materialize.css";
+import { FetchUserData } from '../../actions/fetchUserData';
+
+const background = require('../../assets/img/library.jpeg');
 
 
 class SideNav extends Component{
@@ -16,37 +20,41 @@ class SideNav extends Component{
         };
       }
     
-      onStarClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
-      }
+    componentWillMount(){
+        this.props.getUserData();
+    }  
+
+    onStarClick(nextValue, prevValue, name) {
+    this.setState({rating: nextValue});
+    }
     
     componentDidMount(){
         var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, {});
+        M.Sidenav.init(elems, {});
 
     }
 
     render() {
+        const currentUser = this.props.currentUser; 
+        const stars = ((currentUser.avaliacoes.geral)/10)/2;
         return(
             <div>
                 <ul id="slide-out" className="sidenav">
-                    <li>
-                        <div className="user-view">
-                            <div className="background">
-                                <img src={background} />
-                            </div>
-                            <a href="#user"><img className="circle" src= {userImage} /></a>
-                            <a href="#name"><span className="white-text name">name</span></a>
-                            <a href="#email"><span className="white-text email">email</span></a>
+                    <li><div className="user-view">
+                        <div className="background">
+                            <img src={background} alt="background"/>
                         </div>
-                    </li>
+                        <Link to="/perfil"><img className="circle" src= {currentUser.image} alt="circle"/></Link>
+                        <span className="white-text name name-sidenav">{currentUser.name}</span>
+                        <span className="white-text email email-sidenav">{currentUser.email}</span>
+                    </div></li>
                     
                     <div className="center">
                         <StarRatingComponent 
                             name="star_rating" 
-                            starCount={5}
+                            starCount={stars}
                             value={this.state.rating}
-                            emptyStarColor="#d3d3d3"
+                            emptyStarColor="yellow"
                             renderStarIcon={() => <span><i className="material-icons small">star</i></span>}
                             onStarClick={this.onStarClick.bind(this)}
                             editing={false}
@@ -54,7 +62,7 @@ class SideNav extends Component{
                     </div>
                     <li>
                         <div className="divider"></div></li>
-                    <li><a className="waves-effect" href="#!"><i className="material-icons">account_box</i>Conta</a></li>
+                    <li><Link to="/perfil" className="waves-effect" href="#!"><i className="material-icons">account_box</i>Conta</Link></li>
                     <li><a className="waves-effect" href="#!"><i className="material-icons">import_contacts</i>Histórico</a></li>
                     <li><a className="waves-effect" href="#!"><i className="material-icons">assessment</i>Relatório</a></li>
                     <li><a className="waves-effect" href="#!"><i className="material-icons">insert_comment</i>Conversa</a></li>
@@ -63,13 +71,35 @@ class SideNav extends Component{
                     <li><a className="waves-effect" href="#!"><i className="material-icons">info</i>Sobre</a></li>
                     <li><a className="waves-effect" href="#!"><i className="material-icons">exit_to_app</i>Sair</a></li>
                 </ul>
-                <a data-target="slide-out" className="sidenav-trigger sidenav-button waves-effect">  
+                <Link to="/menu" data-target="slide-out" className="sidenav-trigger sidenav-button waves-effect">  
                     <i className="material-icons small">menu</i>         
-                </a>           
+                </Link>           
             </div>
         );
     }
 }
 
+SideNav.propTypes = {
+    currentUser: PropTypes.object,
+}
 
-export default SideNav;
+SideNav.defaultProps = {
+    currentUser: {},
+}
+
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUserData(){
+            dispatch(FetchUserData());
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SideNav);

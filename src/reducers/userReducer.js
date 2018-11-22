@@ -1,7 +1,8 @@
 import { FETCH_USER_DATA } from '../actions/fetchUserData';
 
 const currentUser = {
-    nome: "",
+    name: "",
+    lastName: "",
     username: "",
     email: "",
     job: "",

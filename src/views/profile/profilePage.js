@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileNavbar from '../components/navbar/profileNavbar';
-import UserInfo from '../components/cards/urserInfo';
-import UserScore from '../components/cards/userScore';
-import UserProgress from '../components/cards/userProgress';
-import { FetchUserData } from '../actions/fetchUserData';
+import ProfileNavbar from '../../components/navbar/profileNavbar';
+import UserInfo from '../../components/cards/urserInfo';
+import UserScore from '../../components/cards/userScore';
+import UserProgress from '../../components/cards/userProgress';
+import { FetchUserData } from '../../actions/fetchUserData';
 
 class ProfilePage extends Component {
 
@@ -21,11 +21,11 @@ class ProfilePage extends Component {
         return(
             <div>
                 <ProfileNavbar />
-                <div className="container">
+                <div className="container user-card">
                         <UserInfo />
                 </div>
                     <UserScore />
-                <div className="container">
+                <div className="container user-card">
                     <UserProgress />
                 </div>
 

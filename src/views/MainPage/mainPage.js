@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FetchUserData } from "../../actions/fetchUserData";
-import MainPage from "../MainPage/mainPage";
+import Navbar from "../../components/navbar/navbar";
 
-class HomePage extends Component {
+class MainPage extends Component {
   componentWillMount() {
     this.props.getUserData();
   }
 
   render() {
-    console.log(this.props.currentUser);
     return (
       <div>
-        <MainPage>
-          <h1>BANQUINHA</h1>
-        </MainPage>
+        <Navbar currentUser={this.props.currentUser} />
+        {this.props.children}
       </div>
     );
   }
@@ -37,4 +35,4 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(MainPage);

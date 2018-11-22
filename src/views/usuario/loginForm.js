@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import logarUsuario from '../../actions/logarUsuario';
-import InputForm from './InputForm';
+import React, { Component } from "react";
+import logarUsuario from "../../actions/logarUsuario";
+import InputForm from "./InputForm";
+import MainPage from "../MainPage/mainPage";
 
 class LoginForm extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      senha: '',
+      email: "",
+      senha: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id] : event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -29,10 +29,8 @@ class LoginForm extends Component {
     event.preventDefault();
   }
 
-
   validaCampos() {
-    if (this.state.email === '' ||
-      this.state.senha === '') {
+    if (this.state.email === "" || this.state.senha === "") {
       return false;
     } else {
       return true;
@@ -44,11 +42,11 @@ class LoginForm extends Component {
     const caracteresMin = 2;
 
     // check @ not starting the emailAdress
-    const atSymbol = this.state.email.indexOf('@');
+    const atSymbol = this.state.email.indexOf("@");
     if (atSymbol < inicio) return false;
 
     // check emailAdress to have . and to have at least 2 characters between @ and .
-    const dot = this.state.email.indexOf('.');
+    const dot = this.state.email.indexOf(".");
     if (dot <= atSymbol + caracteresMin) return false;
 
     // check that the dot is not at the end
@@ -63,16 +61,16 @@ class LoginForm extends Component {
     // const email = this.validaEmail();
     console.log("passou das constantes");
     if (campos === invalido) {
-      alert('Preencha todos os campos corretamente');
+      alert("Preencha todos os campos corretamente");
       console.log("passou da validação do campo");
       return false;
     } else if (senha === invalido) {
-      alert('As senhas não correspondem');
+      alert("As senhas não correspondem");
       console.log("passou da validação da senha");
       return false;
     } //else if (email === invalido) {
-      //alert('Email inválido');
-      //return false;
+    //alert('Email inválido');
+    //return false;
     //}
     else {
       console.log("passou de tudo da validaCadastro");
@@ -83,34 +81,40 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <form>
-          <div className="container">
-            <InputForm
-              name = "email"
-              type = "text"
-              placeholder = "Email"
-              value = {this.state.email}
-              handleChange={this.handleChange}
-            />
-            <InputForm
-              name = "senha"
-              type = "password"
-              placeholder = "Senha:"
-              value = {this.state.senha}
-              handleChange={this.handleChange}
-            />
-            <button
-              className="waves-effect waves-light btn-small left"
-              onClick={this.handleSubmit}>Ainda não tem um cadastro?
-            </button>
-            <button
-              className="waves-effect waves-light btn-small right"
-              onClick={this.handleSubmit}>Entrar
-            </button>
-          </div>
-        </form>
+        <MainPage>
+          <form>
+            <div className="container">
+              <InputForm
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={this.state.email}
+                handleChange={this.handleChange}
+              />
+              <InputForm
+                name="senha"
+                type="password"
+                placeholder="Senha:"
+                value={this.state.senha}
+                handleChange={this.handleChange}
+              />
+              <button
+                className="waves-effect waves-light btn-small left"
+                onClick={this.handleSubmit}
+              >
+                Ainda não tem um cadastro?
+              </button>
+              <button
+                className="waves-effect waves-light btn-small right"
+                onClick={this.handleSubmit}
+              >
+                Entrar
+              </button>
+            </div>
+          </form>
+        </MainPage>
       </div>
-    )
+    );
   }
 }
 export default LoginForm;

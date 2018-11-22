@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import MainPage from "../MainPage/mainPage";
 
 class InputForm extends Component {
-
   render() {
-    return(
+    return (
       <div className="input-field">
-          <input id={this.props.name} type={this.props.type} onChange={this.props.handleChange} class="validate"/>
+        <MainPage>
+          <input
+            id={this.props.name}
+            type={this.props.type}
+            onChange={this.props.handleChange}
+            class="validate"
+          />
           <label for={this.props.name}>{this.props.placeholder}</label>
+        </MainPage>
       </div>
     );
   }

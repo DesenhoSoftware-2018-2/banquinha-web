@@ -71,7 +71,7 @@ class CadastroForm extends Component {
     const invalido = false;
     const campos = this.validaCampos();
     const senha = this.validaSenhaConfirmada();
-    const email = this.validaEmail();
+    // const email = this.validaEmail();
     console.log("passou das constantes");
     if (campos === invalido) {
       alert('Preencha todos os campos corretamente');

@@ -33,11 +33,11 @@ class Create extends Component {
     const cadastroValido = this.validaCadastro();
     if(cadastroValido === valido) {
       this.adaptFilePath(this.state.imagem)
-      alert(this.state.nome + 'And' +
-            this.state.conteudo +
-            this.state.tag +
-            this.state.imagem +
-            this.state.data + 'Was submited');
+      alert(this.state.nome + ', ' +
+            this.state.conteudo + ', ' +
+            this.state.tag + ', ' +
+            this.state.imagem + ', ' +
+            this.state.data + ' Submited');
       CriarMonitoria("10" , this.state.nome, this.state.imagem,
                      this.state.tag, this.state.data, this.state.conteudo);
     }
@@ -78,7 +78,9 @@ class Create extends Component {
 
       <div id='createMonitoria'>
         <SideNav />
-        <div id='monitoriaForm'>
+        
+        <div className='card' id='monitoriaForm'>
+        <div id='formInputs'>
           <form onSubmit={this.handleSubmit} >
             <InputField
               labelId='monitoriaLabel'
@@ -123,6 +125,7 @@ class Create extends Component {
             />
         </form>
         <a id='createMonitoriaButton' className="waves-effect waves-light btn-small" onClick={this.handleSubmit}>Cadastrar</a>
+      </div>
       </div>
     </div>
 

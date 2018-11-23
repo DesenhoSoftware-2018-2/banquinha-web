@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from '../views/HomePage/homePage';
 import Profile from '../views/profile/profilePage';
-import SignUp from '../components/sign-up/sign-up';
-import Login from '../components/login/login';
+import SignUp from '../views/usuario/sign-up';
+import Login from '../views/usuario/login';
 import EditProfile from '../views/profile/editProfile';
 
 export default () => (

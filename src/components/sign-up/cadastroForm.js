@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import criarUsuario from "../../actions/criarUsuario";
 import InputForm from "./InputForm";
-import MainPage from "../MainPage/mainPage";
 
 class CadastroForm extends Component {
   constructor(props) {
@@ -96,52 +95,50 @@ class CadastroForm extends Component {
   render() {
     return (
       <div>
-        <MainPage>
-          <form>
-            <div className="container">
-              <InputForm
-                name="nome"
-                type="text"
-                placeholder="Nome"
-                value={this.state.nome}
-                handleChange={this.handleChange}
-              />
-              <InputForm
-                name="email"
-                type="text"
-                placeholder="Email"
-                value={this.state.email}
-                handleChange={this.handleChange}
-              />
-              <InputForm
-                name="senha"
-                type="password"
-                placeholder="Senha:"
-                value={this.state.senha}
-                handleChange={this.handleChange}
-              />
-              <InputForm
-                name="confirmarSenha"
-                type="password"
-                placeholder="Confirmar senha:"
-                value={this.state.senhaConfirmada}
-                handleChange={this.handleChange}
-              />
-              <button
-                className="waves-effect waves-light btn-small left"
-                onClick={this.handleSubmit}
-              >
-                Já tem um cadastro? Faça login
-              </button>
-              <button
-                className="waves-effect waves-light btn-small right"
-                onClick={this.handleSubmit}
-              >
-                Cadastrar
-              </button>
-            </div>
-          </form>
-        </MainPage>
+        <form>
+          <div className="container">
+            <InputForm
+              name="nome"
+              type="text"
+              placeholder="Nome"
+              value={this.state.nome}
+              handleChange={this.handleChange}
+            />
+            <InputForm
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={this.state.email}
+              handleChange={this.handleChange}
+            />
+            <InputForm
+              name="senha"
+              type="password"
+              placeholder="Senha:"
+              value={this.state.senha}
+              handleChange={this.handleChange}
+            />
+            <InputForm
+              name="confirmarSenha"
+              type="password"
+              placeholder="Confirmar senha:"
+              value={this.state.senhaConfirmada}
+              handleChange={this.handleChange}
+            />
+            <button
+              className="waves-effect waves-light btn-small left"
+              onClick={this.handleSubmit}
+            >
+              Já tem um cadastro? Faça login
+            </button>
+            <button
+              className="waves-effect waves-light btn-small right"
+              onClick={this.handleSubmit}
+            >
+              Cadastrar
+            </button>
+          </div>
+        </form>
       </div>
     );
   }

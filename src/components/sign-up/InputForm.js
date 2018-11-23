@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import MainPage from "../MainPage/mainPage";
 
 class InputForm extends Component {
   render() {
     return (
       <div className="input-field">
-        <MainPage>
           <input
             id={this.props.name}
             type={this.props.type}
@@ -13,7 +11,6 @@ class InputForm extends Component {
             class="validate"
           />
           <label for={this.props.name}>{this.props.placeholder}</label>
-        </MainPage>
       </div>
     );
   }

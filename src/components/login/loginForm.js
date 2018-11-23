@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import logarUsuario from "../../actions/logarUsuario";
-import InputForm from "./InputForm";
-import MainPage from "../MainPage/mainPage";
+import InputForm from "../sign-up/InputForm";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -81,38 +80,36 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <MainPage>
-          <form>
-            <div className="container">
-              <InputForm
-                name="email"
-                type="text"
-                placeholder="Email"
-                value={this.state.email}
-                handleChange={this.handleChange}
-              />
-              <InputForm
-                name="senha"
-                type="password"
-                placeholder="Senha:"
-                value={this.state.senha}
-                handleChange={this.handleChange}
-              />
-              <button
-                className="waves-effect waves-light btn-small left"
-                onClick={this.handleSubmit}
-              >
-                Ainda não tem um cadastro?
-              </button>
-              <button
-                className="waves-effect waves-light btn-small right"
-                onClick={this.handleSubmit}
-              >
-                Entrar
-              </button>
-            </div>
-          </form>
-        </MainPage>
+        <form>
+          <div className="container">
+            <InputForm
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={this.state.email}
+              handleChange={this.handleChange}
+            />
+            <InputForm
+              name="senha"
+              type="password"
+              placeholder="Senha:"
+              value={this.state.senha}
+              handleChange={this.handleChange}
+            />
+            <button
+              className="waves-effect waves-light btn-small left"
+              onClick={this.handleSubmit}
+            >
+              Ainda não tem um cadastro?
+            </button>
+            <button
+              className="waves-effect waves-light btn-small right"
+              onClick={this.handleSubmit}
+            >
+              Entrar
+            </button>
+          </div>
+        </form>
       </div>
     );
   }

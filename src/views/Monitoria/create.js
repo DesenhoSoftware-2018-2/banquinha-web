@@ -28,11 +28,17 @@ class Create extends Component {
     this.state.imagem=filename
   }
 
+  adaptDateTimeFormat(dateTime){
+    var formatedDateTime = dateTime.replace('T','-');
+    this.state.data = formatedDateTime
+  }
+
   handleSubmit(event) {
     const valido = true;
     const cadastroValido = this.validaCadastro();
     if(cadastroValido === valido) {
       this.adaptFilePath(this.state.imagem)
+      this.adaptDateTimeFormat(this.state.data)
       alert(this.state.nome + ', ' +
             this.state.conteudo + ', ' +
             this.state.tag + ', ' +

@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import criarUsuario from '../../actions/criarUsuario';
-import InputForm from './InputForm';
+import React, { Component } from "react";
+import criarUsuario from "../../actions/criarUsuario";
+import InputForm from "./InputForm";
 
 class CadastroForm extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      nome: '',
-      email: '',
-      senha: '',
-      senhaConfirmada: '',
+      nome: "",
+      email: "",
+      senha: "",
+      senhaConfirmada: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ [event.target.id] : event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -41,9 +40,11 @@ class CadastroForm extends Component {
   }
 
   validaCampos() {
-    if (this.state.nome === '' ||
-      this.state.email === '' ||
-      this.state.senha === '') {
+    if (
+      this.state.nome === "" ||
+      this.state.email === "" ||
+      this.state.senha === ""
+    ) {
       return false;
     } else {
       return true;
@@ -55,11 +56,11 @@ class CadastroForm extends Component {
     const caracteresMin = 2;
 
     // check @ not starting the emailAdress
-    const atSymbol = this.state.email.indexOf('@');
+    const atSymbol = this.state.email.indexOf("@");
     if (atSymbol < inicio) return false;
 
     // check emailAdress to have . and to have at least 2 characters between @ and .
-    const dot = this.state.email.indexOf('.');
+    const dot = this.state.email.indexOf(".");
     if (dot <= atSymbol + caracteresMin) return false;
 
     // check that the dot is not at the end
@@ -74,16 +75,16 @@ class CadastroForm extends Component {
     // const email = this.validaEmail();
     console.log("passou das constantes");
     if (campos === invalido) {
-      alert('Preencha todos os campos corretamente');
+      alert("Preencha todos os campos corretamente");
       console.log("passou da validação do campo");
       return false;
     } else if (senha === invalido) {
-      alert('As senhas não correspondem');
+      alert("As senhas não correspondem");
       console.log("passou da validação da senha");
       return false;
     } //else if (email === invalido) {
-      //alert('Email inválido');
-      //return false;
+    //alert('Email inválido');
+    //return false;
     //}
     else {
       console.log("passou de tudo da validaCadastro");
@@ -97,45 +98,49 @@ class CadastroForm extends Component {
         <form>
           <div className="container">
             <InputForm
-              name = "nome"
-              type = "text"
-              placeholder = "Nome"
-              value = {this.state.nome}
+              name="nome"
+              type="text"
+              placeholder="Nome"
+              value={this.state.nome}
               handleChange={this.handleChange}
             />
             <InputForm
-              name = "email"
-              type = "text"
-              placeholder = "Email"
-              value = {this.state.email}
+              name="email"
+              type="text"
+              placeholder="Email"
+              value={this.state.email}
               handleChange={this.handleChange}
             />
             <InputForm
-              name = "senha"
-              type = "password"
-              placeholder = "Senha:"
-              value = {this.state.senha}
+              name="senha"
+              type="password"
+              placeholder="Senha:"
+              value={this.state.senha}
               handleChange={this.handleChange}
             />
             <InputForm
-              name = "confirmarSenha"
-              type = "password"
-              placeholder = "Confirmar senha:"
-              value = {this.state.senhaConfirmada}
+              name="confirmarSenha"
+              type="password"
+              placeholder="Confirmar senha:"
+              value={this.state.senhaConfirmada}
               handleChange={this.handleChange}
             />
             <button
               className="waves-effect waves-light btn-small left"
-              onClick={this.handleSubmit}>Já tem um cadastro? Faça login
+              onClick={this.handleSubmit}
+            >
+              Já tem um cadastro? Faça login
             </button>
             <button
               className="waves-effect waves-light btn-small right"
-              onClick={this.handleSubmit}>Cadastrar
+              onClick={this.handleSubmit}
+            >
+              Cadastrar
             </button>
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 export default CadastroForm;

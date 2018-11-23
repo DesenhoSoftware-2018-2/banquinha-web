@@ -29,7 +29,7 @@ class Create extends Component {
   }
 
   adaptDateTimeFormat(dateTime){
-    var formatedDateTime = dateTime.replace('T','-');
+    var formatedDateTime = dateTime.replace('T',' ');
     this.state.data = formatedDateTime
   }
 

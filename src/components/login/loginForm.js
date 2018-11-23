@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import logarUsuario from "../../actions/logarUsuario";
+import { FetchUserData } from "../../actions/fetchUserData";
 import InputForm from "../sign-up/InputForm";
 
 class LoginForm extends Component {
@@ -78,6 +81,7 @@ class LoginForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <form>
@@ -96,22 +100,31 @@ class LoginForm extends Component {
               value={this.state.senha}
               handleChange={this.handleChange}
             />
-            <button
+            <Link
               className="waves-effect waves-light btn-small left"
-              onClick={this.handleSubmit}
+              to="/cadastro"
             >
               Ainda não tem um cadastro?
-            </button>
-            <button
+            </Link>
+            <Link
+              to="/"
               className="waves-effect waves-light btn-small right"
-              onClick={this.handleSubmit}
             >
               Entrar
-            </button>
+            </Link>
           </div>
         </form>
       </div>
     );
   }
 }
-export default LoginForm;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getUserData() {
+      dispatch(FetchUserData());
+    }
+  };
+};
+
+export default connect(mapDispatchToProps)(LoginForm);

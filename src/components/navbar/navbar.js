@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { LogoutUser } from "../../actions/fetchUserData";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 class Navbar extends Component {
@@ -16,7 +18,7 @@ class Navbar extends Component {
     if (this.props.currentUser.email === "") {
       return (
         <li>
-          <Link to="/cadastrar" className="orange-text text-darken-4">
+          <Link to="/cadastro" className="orange-text text-darken-4">
             Cadastrar
           </Link>
         </li>
@@ -48,6 +50,7 @@ class Navbar extends Component {
             <li>
             <Link
                 to="/login"
+                onClick={() => this.props.logout() }
                 className="orange-text text-darken-4 tooltipped"
                 data-position="bottom"
                 data-tooltip="Sair"
@@ -118,4 +121,13 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout() {
+      dispatch(LogoutUser());
+    }
+  };
+};
+
+export default connect(mapDispatchToProps)(Navbar);

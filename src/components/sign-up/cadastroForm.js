@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import criarUsuario from "../../actions/criarUsuario";
 import InputForm from "./InputForm";
 
@@ -125,12 +126,12 @@ class CadastroForm extends Component {
               value={this.state.senhaConfirmada}
               handleChange={this.handleChange}
             />
-            <button
+            <Link
+              to="/login"
               className="waves-effect waves-light btn-small left"
-              onClick={this.handleSubmit}
             >
               Já tem um cadastro? Faça login
-            </button>
+            </Link>
             <button
               className="waves-effect waves-light btn-small right"
               onClick={this.handleSubmit}

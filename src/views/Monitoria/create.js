@@ -23,10 +23,16 @@ class Create extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  adaptFilePath(path){
+    var filename = path.replace(/^.*\\/, "");
+    this.state.imagem=filename
+  }
+
   handleSubmit(event) {
     const valido = true;
     const cadastroValido = this.validaCadastro();
     if(cadastroValido === valido) {
+      this.adaptFilePath(this.state.imagem)
       alert(this.state.nome + 'And' +
             this.state.conteudo +
             this.state.tag +

@@ -25,27 +25,23 @@ class EditProfile extends Component {
                 bio: "",
             }
         }
-
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event){
-        const target = event.target;
-        const value = target.value;
-        const name = target.user.name;
+    handleInputChange(e, target){
+        let user = this.state.user;
+        user[target] = e.target.value;
         this.setState({
-            [name]: value
+            user: user
         })
     }
 
     componentDidMount() {
         document.querySelectorAll('.form');
         M.updateTextFields();
-
     }
 
     render(){
-        const currentUser = this.props.currentUser;  
+        const currentUser = this.props.currentUser;
 
         if(this.state.user.name === "" && currentUser.name !== "" ){
             this.setState({
@@ -62,8 +58,8 @@ class EditProfile extends Component {
                                     <input 
                                         color="blue" 
                                         value={this.state.user.name} 
-                                        onChange={this.handleInputChange} 
-                                        id="first_name" 
+                                        onChange={(e) => this.handleInputChange(e, "name")}
+                                        id="name" 
                                         type="text" 
                                         className="validate" />
                                     <label className="active" htmlFor="first_name">Name</label>
@@ -71,6 +67,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.lastName}`} 
+                                        onChange={(e) => this.handleInputChange(e, "lastName")}
                                         id="last_name" 
                                         type="text" 
                                         className="validate" />
@@ -78,7 +75,8 @@ class EditProfile extends Component {
                                 </div>
                                 <div className="input-field col s6">
                                     <input 
-                                        value={`${this.state.user.username}`} 
+                                        value={`${this.state.user.username}`}
+                                        onChange={(e) => this.handleInputChange(e, "username")}
                                         id="username" 
                                         type="text" 
                                         className="validate" />
@@ -87,6 +85,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.job}`} 
+                                        onChange={(e) => this.handleInputChange(e, "job")}
                                         id="job" 
                                         type="text" 
                                         className="validate" />
@@ -97,6 +96,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.email}`} 
+                                        onChange={(e) => this.handleInputChange(e, "email")}
                                         id="email" 
                                         type="email" 
                                         className="validate" />
@@ -104,9 +104,10 @@ class EditProfile extends Component {
                                 </div>
                                 <div className="input-field col s6">
                                     <input 
-                                        value="teste" 
-                                        id="password" 
-                                        type="password" 
+                                        value="teste"
+                                        onChange={(e) => this.handleInputChange(e, "password")}
+                                        id="password"
+                                        type="password"
                                         className="validate" />
                                     <label htmlFor="password">Senha</label>
                                 </div>
@@ -115,7 +116,8 @@ class EditProfile extends Component {
                             <div className="row">
                                 <div className="input-field col s12">
                                     <textarea 
-                                        value={`${this.state.user.bio}`} 
+                                        value={`${this.state.user.bio}`}
+                                        onChange={(e) => this.handleInputChange(e, "bio")}
                                         id="textarea2" 
                                         className="materialize-textarea" 
                                         data-length="240"></textarea>
@@ -125,7 +127,8 @@ class EditProfile extends Component {
                             <div className="row">
                             <div className="input-field col s6">
                                     <input 
-                                        value={`${this.state.user.facebook}`} 
+                                        value={`${this.state.user.facebook}`}
+                                        onChange={(e) => this.handleInputChange(e, "facebook")}
                                         id="facebook" 
                                         type="text" 
                                         className="validate" />
@@ -134,6 +137,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.linkedin}`} 
+                                        onChange={(e) => this.handleInputChange(e, "linkedin")}
                                         id="linkedin" 
                                         type="text" 
                                         className="validate" />
@@ -142,6 +146,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.instagram}`} 
+                                        onChange={(e) => this.handleInputChange(e, "instagram")}
                                         id="instagram" 
                                         type="text" 
                                         className="validate" />
@@ -150,6 +155,7 @@ class EditProfile extends Component {
                                 <div className="input-field col s6">
                                     <input 
                                         value={`${this.state.user.twitter}`} 
+                                        onChange={(e) => this.handleInputChange(e, "twitter")}
                                         id="twitter" 
                                         type="text" 
                                         className="validate" />

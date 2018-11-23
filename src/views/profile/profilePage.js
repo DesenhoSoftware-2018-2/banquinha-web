@@ -1,51 +1,52 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ProfileNavbar from '../../components/navbar/profileNavbar';
-import UserInfo from '../../components/cards/urserInfo';
-import UserScore from '../../components/cards/userScore';
-import UserProgress from '../../components/cards/userProgress';
-import { FetchUserData } from '../../actions/fetchUserData';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import UserInfo from "../../components/cards/urserInfo";
+import UserScore from "../../components/cards/userScore";
+import UserProgress from "../../components/cards/userProgress";
+import { FetchUserData } from "../../actions/fetchUserData";
+import MainPage from "../MainPage/mainPage";
 
 class ProfilePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  componentWillMount() {
+    this.props.getUserData();
+  }
 
-    componentWillMount() {
-        this.props.getUserData();
-    }
-
-    render(){
-        return(
-            <div>
-                <ProfileNavbar />
-                <div className="container user-card">
-                        <UserInfo />
-                </div>
-                    <UserScore />
-                <div className="container user-card">
-                    <UserProgress />
-                </div>
-
-            </div>
-        );
-    }
-
+  render() {
+    return (
+      <div>
+        <MainPage>
+          <div className="container user-card">
+            <UserInfo />
+          </div>
+          <UserScore />
+          <div className="container user-card">
+            <UserProgress />
+          </div>
+        </MainPage>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        userData: state.userData,
-    }
+  return {
+    userData: state.userData
+  };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getUserData() {
-            dispatch(FetchUserData());
-        }
+const mapDispatchToProps = dispatch => {
+  return {
+    getUserData() {
+      dispatch(FetchUserData());
     }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProfilePage);

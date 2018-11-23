@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import ProfileNavbar from '../../components/navbar/profileNavbar';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import M from "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.css";
+import MainPage from "../MainPage/mainPage";
 
-class EditProfile extends Component{
-
+class EditProfile extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -55,59 +54,105 @@ class EditProfile extends Component{
         }
         return(
             <div>
-                <ProfileNavbar />
+                <MainPage>
                 <div className="row container profile-form">
                         <form className="col s12">
                             <div className="row">
                                 <div className="input-field col s6">
-                                    <input color="blue" value={this.state.user.name} onChange={this.handleInputChange} id="first_name" type="text" className="validate" />
+                                    <input 
+                                        color="blue" 
+                                        value={this.state.user.name} 
+                                        onChange={this.handleInputChange} 
+                                        id="first_name" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="first_name">Name</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.lastName}`} id="last_name" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.lastName}`} 
+                                        id="last_name" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="last_name">Sobrenome</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.username}`} id="username" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.username}`} 
+                                        id="username" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="username">Nome de Usuário</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.job}`} id="job" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.job}`} 
+                                        id="job" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="job">Emprego</label>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.email}`} id="email" type="email" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.email}`} 
+                                        id="email" 
+                                        type="email" 
+                                        className="validate" />
                                     <label className="active" htmlFor="email">Email</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value="teste" id="password" type="password" className="validate" />
+                                    <input 
+                                        value="teste" 
+                                        id="password" 
+                                        type="password" 
+                                        className="validate" />
                                     <label htmlFor="password">Senha</label>
                                 </div>
                             </div>
                             <hr className="style14" />
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <textarea value={`${this.state.user.bio}`} id="textarea2" className="materialize-textarea" data-length="240"></textarea>
+                                    <textarea 
+                                        value={`${this.state.user.bio}`} 
+                                        id="textarea2" 
+                                        className="materialize-textarea" 
+                                        data-length="240"></textarea>
                                     <label htmlFor="textarea2">Biografia</label>
                                 </div>
                             </div>
                             <div className="row">
                             <div className="input-field col s6">
-                                    <input value={`${this.state.user.facebook}`} id="facebook" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.facebook}`} 
+                                        id="facebook" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="facebook">Facebook</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.linkedin}`} id="linkedin" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.linkedin}`} 
+                                        id="linkedin" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="linkedin">Linkedin</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.instagram}`} id="instagram" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.instagram}`} 
+                                        id="instagram" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="instagram">Instagram</label>
                                 </div>
                                 <div className="input-field col s6">
-                                    <input value={`${this.state.user.twitter}`} id="twitter" type="text" className="validate" />
+                                    <input 
+                                        value={`${this.state.user.twitter}`} 
+                                        id="twitter" 
+                                        type="text" 
+                                        className="validate" />
                                     <label className="active" htmlFor="twitter">Twitter</label>
                                 </div>
                             </div>
@@ -118,23 +163,24 @@ class EditProfile extends Component{
                             </div>  
                         </form>
                     </div>
+                    </MainPage>
                 </div>
-        );
-    }
+    );
+  }
 }
 
 EditProfile.PropTypes = {
-    currentUser: PropTypes.object,
-}
+  currentUser: PropTypes.object
+};
 
 EditProfile.defaultProps = {
-    currentUser: {},
-}
+  currentUser: {}
+};
 
 function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser,
-    }
+  return {
+    currentUser: state.currentUser
+  };
 }
 
 export default connect(mapStateToProps)(EditProfile);

@@ -6,6 +6,8 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import App from './App';
 
+import "materialize-css/dist/css/materialize.css";
+
 const store = createStore(reducers, applyMiddleware(promise));
 
 ReactDOM.render(

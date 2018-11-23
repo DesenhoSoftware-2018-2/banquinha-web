@@ -112,7 +112,7 @@ class EditProfile extends Component {
                                     <label htmlFor="password">Senha</label>
                                 </div>
                             </div>
-                            <hr className="style14" />
+                            <li class="divider"></li>
                             <div className="row">
                                 <div className="input-field col s12">
                                     <textarea 
@@ -162,7 +162,7 @@ class EditProfile extends Component {
                                     <label className="active" htmlFor="twitter">Twitter</label>
                                 </div>
                             </div>
-                            <hr className="style14" />
+                            <li class="divider"></li>
                             <div className="row btn-form">
                                 <Link to="/perfil" className="waves-effect waves-light btn save-button">Salvar</Link>
                                 <Link to="/perfil" className="waves-effect waves-light btn">Cancelar</Link>

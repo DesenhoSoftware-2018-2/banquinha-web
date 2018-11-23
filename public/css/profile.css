@@ -104,3 +104,8 @@ hr.style14 {
     border-radius: 6px;
     font-size: 18px;
   }
+
+  .edit-button{
+      text-align: right;
+      color: orange;
+  }

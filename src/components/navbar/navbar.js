@@ -24,30 +24,52 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <li>
+          <ul>
+            <li>
+              <Link
+                to="/notificacoes"
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Notificações"
+              >
+                <i className="far fa-bell" />
+              </Link>
+            </li>
+            <li>
             <Link
-              to="/notificacoes"
-              className="orange-text text-darken-4 tooltipped"
-              data-position="bottom"
-              data-tooltip="Notificações"
-            >
-              <i className="far fa-bell" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/perfil" className="orange-text text-darken-4">
-              <img
-                className="responsive-img img-profile-navbar"
-                alt="perfil"
-                src={this.props.currentUser.image}
-              />
-            </Link>
-          </li>
+                to="/editPerfil"
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Editar Perfil"
+              >
+                <i class="far fa-edit"></i>
+              </Link>
+            </li>
+            <li>
+            <Link
+                to="/login"
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Sair"
+              >
+                <i class="fas fa-sign-out-alt"></i>
+              </Link>
+            </li>
+            <li>
+              <Link to="/perfil" className="orange-text text-darken-4">
+                <img
+                  className="responsive-img img-profile-navbar"
+                  alt="perfil"
+                  src={this.props.currentUser.image}
+                />
+              </Link>
+            </li>
+          </ul>
         </div>
       );
     }
   }
-
+  
   render() {
     return (
       <div>
@@ -83,6 +105,7 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
+           
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.isLogged()}
             </ul>

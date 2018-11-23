@@ -22,15 +22,15 @@ class UserInfo extends Component{
                 <div className="card-image">
                     <img className="responsive-img img-profile" alt="perfil" src={currentUser.image} />
                     <div className="social-networks">
-                    <a href={currentUser.facebook}><img className="img-profile" src={fb} alt="cubo"/></a>
-                    <a href={currentUser.instagram}><img className="img-profile" src={insta} alt="cubo"/></a>
-                    <a href={currentUser.linkedin}><img className="img-profile" src={lkdin} alt="cubo"/></a>
-                    <a href={currentUser.twitter}><img className="img-profile" src={tt} alt="cubo"/></a>
+                        <a href={"https://www.facebook.com/" + currentUser.facebook}><img className="img-profile" src={fb} alt="cubo"/></a>
+                        <a href={"https://www.instagram.com/" + currentUser.instagram}><img className="img-profile" src={insta} alt="cubo"/></a>
+                        <a href={"https://www.linkedin.com/" + currentUser.linkedin}><img className="img-profile" src={lkdin} alt="cubo"/></a>
+                        <a href={"https://twitter.com/" + currentUser.twitter}><img className="img-profile" src={tt} alt="cubo"/></a>
                     </div>
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5>{currentUser.name}</h5>
+                        <h5>{currentUser.name} {currentUser.lastName}</h5>
                         <h6>{currentUser.job}</h6>
                         <div className="profile-bio">
                         <p>{currentUser.bio}</p>

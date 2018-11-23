@@ -1,4 +1,4 @@
-import { FETCH_USER_DATA } from '../actions/fetchUserData';
+import { FETCH_USER_DATA, LOGOUT_USER } from '../actions/fetchUserData';
 
 const currentUser = {
     name: "",
@@ -24,6 +24,8 @@ export default function (state = currentUser, action) {
     switch (action.type) {
         case FETCH_USER_DATA:
             return action.payload.data;
+        case LOGOUT_USER:
+            return state;
         default:
             return state;
     }

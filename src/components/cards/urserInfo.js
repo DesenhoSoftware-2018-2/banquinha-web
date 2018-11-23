@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const fb = require("../../assets/img/facebook.png");
 const insta = require("../../assets/img/instagram.png");

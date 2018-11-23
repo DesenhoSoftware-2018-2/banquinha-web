@@ -7,9 +7,10 @@ export default function logarUsuario(email, senha){
   const data = {
     email: email,
     password: senha,
+    active: true,
   };
 
-  const request = axios.put(HOST, data);
+  const request = axios.put(`${HOST}`, data);
 
   return {
     type: USER_LOGIN_REQUEST,

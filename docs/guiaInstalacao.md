@@ -3,7 +3,7 @@
 ### 1 - Primeiro leia o nosso [guia de contribuição](docs/CONTRIBUTING.md) onde são explicados todos os passos para contribuir. Ah, não esquece de ler nosso [código de conduta](docs/CODE_OF_CONDUCT.md).
 Para poder executar e contribuir com o projeto, você deve ter o [Node.js](https://nodejs.org/en/) em sua máquina.
 
-Para instalar a nossa wiki é bem simples, basta seguir os passos a seguir e se restar dúvidas procure a documentação oficial do react.
+Para instalar o nosso projeto é bem simples, basta seguir os passos a seguir e se restar dúvidas procure a documentação oficial do react.
 
 
 ### 2 - Em seguida instale as dependências

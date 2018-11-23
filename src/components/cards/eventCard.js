@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class EventCard extends Component {
   render() {
@@ -14,7 +15,7 @@ class EventCard extends Component {
           </div>
           <div className="card-action">
             <a href="#1">Não quero</a>
-            <a href="#2">Ver Mais! </a>
+            <Link to={{pathname: "/event", state: { event: this.props.event } }} >Ver Mais! </Link>
           </div>
         </div>
       </div>

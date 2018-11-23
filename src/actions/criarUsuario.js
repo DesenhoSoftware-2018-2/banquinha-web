@@ -4,9 +4,9 @@ const HOST = 'http://localhost:8000/criaUsuario/';
 
 export default function criarUsuario(nome, email, senha){
     axios.post(`${HOST}`, {
-      nome : nome,
+      username : nome,
       email : email,
-      senha : senha
+      password : senha
     })
     .catch(function (error) {
       if (error.response) {

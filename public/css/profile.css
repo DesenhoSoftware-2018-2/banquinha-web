@@ -96,16 +96,27 @@ hr.style14 {
     background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
   }
 
-  .save-button{
+.save-button{
     margin: 1em;
     width: 150px;
     text-align: center;
     padding: 15px 20px;
     border-radius: 6px;
     font-size: 18px;
-  }
+}
 
-  .edit-button{
-      text-align: right;
-      color: orange;
-  }
+.edit-button{
+    text-align: right;
+    color: orange;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label, .input-field input[type=email]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #e65100 !important;
+   }
+
+/* label underline focus color */
+   .input-field input[type=text]:focus, .input-field input[type=password]:focus, .input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #e65100 !important;
+    box-shadow: 0 1px 0 0 #e65100 !important;
+   }

@@ -29,4 +29,12 @@
 
 body {
     font-family: 'Dosis', sans-serif;
+    background: #f5f5f5;
+}
+
+.image-view{
+    margin-right: 9em !important;
+    margin-top: 3em !important;
+    color: orange; 
+    
 }

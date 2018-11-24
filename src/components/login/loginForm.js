@@ -101,14 +101,14 @@ class LoginForm extends Component {
               handleChange={this.handleChange}
             />
             <Link
-              className="waves-effect waves-light btn-small left"
+              className="waves-effect waves-light btn-small left cadastro-btn"
               to="/cadastro"
             >
               Ainda não tem um cadastro?
             </Link>
             <Link
               to="/"
-              className="waves-effect waves-light btn-small right"
+              className="waves-effect waves-light btn-small right login-btn"
             >
               Entrar
             </Link>

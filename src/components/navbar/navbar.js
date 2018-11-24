@@ -108,7 +108,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <h4 className="app-title orange-text text-darken-4 brand-logo center">Banquinha</h4>
+                <Link to="/"><h4 className="app-title orange-text text-darken-4 brand-logo center">Banquinha</h4></Link>
               </li>
             </ul>
            

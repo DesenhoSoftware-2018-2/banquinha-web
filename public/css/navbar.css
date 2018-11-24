@@ -1,0 +1,9 @@
+nav img {
+    width: 50%;
+    height: 50%;
+}
+
+.app-title{
+    font-family: 'Lobster', cursive;
+    /* font-size: 2em !important; */
+}

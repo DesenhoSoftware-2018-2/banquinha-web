@@ -1,3 +1,4 @@
+
 #createMonitoria {
   position: absolute;
   width: 100% !important;
@@ -24,4 +25,8 @@
 
 #formInputs {
   margin: 20px;
+}
+
+body {
+    font-family: 'Dosis', sans-serif;
 }

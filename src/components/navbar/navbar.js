@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { LogoutUser } from "../../actions/fetchUserData";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 class Navbar extends Component {
@@ -16,7 +18,7 @@ class Navbar extends Component {
     if (this.props.currentUser.email === "") {
       return (
         <li>
-          <Link to="/cadastrar" className="orange-text text-darken-4">
+          <Link to="/cadastro" className="orange-text text-darken-4">
             Cadastrar
           </Link>
         </li>
@@ -24,30 +26,53 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <li>
+          <ul>
+            <li>
+              <Link
+                to="/notificacoes"
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Notificações"
+              >
+                <i className="far fa-bell" />
+              </Link>
+            </li>
+            <li>
             <Link
-              to="/notificacoes"
-              className="orange-text text-darken-4 tooltipped"
-              data-position="bottom"
-              data-tooltip="Notificações"
-            >
-              <i className="far fa-bell" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/perfil" className="orange-text text-darken-4">
-              <img
-                className="responsive-img img-profile-navbar"
-                alt="perfil"
-                src={this.props.currentUser.image}
-              />
-            </Link>
-          </li>
+                to="/editPerfil"
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Editar Perfil"
+              >
+                <i class="far fa-edit"></i>
+              </Link>
+            </li>
+            <li>
+            <Link
+                to="/login"
+                onClick={() => this.props.logout() }
+                className="orange-text text-darken-4 tooltipped"
+                data-position="bottom"
+                data-tooltip="Sair"
+              >
+                <i class="fas fa-sign-out-alt"></i>
+              </Link>
+            </li>
+            <li>
+              <Link to="/perfil" className="orange-text text-darken-4">
+                <img
+                  className="responsive-img img-profile-navbar"
+                  alt="perfil"
+                  src={this.props.currentUser.image}
+                />
+              </Link>
+            </li>
+          </ul>
         </div>
       );
     }
   }
-
+  
   render() {
     return (
       <div>
@@ -83,9 +108,10 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <h4 className="app-title orange-text text-darken-4 brand-logo center">Banquinha</h4>
+                <Link to="/"><h4 className="app-title orange-text text-darken-4 brand-logo center">Banquinha</h4></Link>
               </li>
             </ul>
+           
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.isLogged()}
             </ul>
@@ -95,4 +121,13 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout() {
+      dispatch(LogoutUser());
+    }
+  };
+};
+
+export default connect(mapDispatchToProps)(Navbar);

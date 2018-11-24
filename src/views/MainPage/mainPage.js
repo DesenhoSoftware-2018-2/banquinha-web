@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/navbar";
 
 class MainPage extends Component {
   componentWillMount() {
-    this.props.getUserData();
+    // this.props.getUserData();
   }
 
   render() {

@@ -73,7 +73,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li>
-                <Link to="/chat" className="orange-text text-darken-4">
+                <Link to="/conversas" className="orange-text text-darken-4">
                   Conversas
                 </Link>
               </li>

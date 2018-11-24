@@ -8,14 +8,14 @@ class EventCard extends Component {
         <div className="card small hoverable">
           <div className="card-image">
             <img alt="img" src={this.props.event.image} />
-            <span className="card-title">{this.props.event.name}</span>
+            <span className="card-title black-text card-name">{this.props.event.name}</span>
           </div>
-          <div className="card-content">
+          <div className="card-content orange-text text-darken-4">
             <p>{this.props.event.content}</p>
           </div>
           <div className="card-action">
-            <a href="#1">Não quero</a>
-            <Link to={{pathname: "/event", state: { event: this.props.event } }} >Ver Mais! </Link>
+            <a className="orange-text text-darken-3" href="#1">Não quero</a>
+            <Link className="orange-text text-darken-3" to={{pathname: "/event", state: { event: this.props.event } }} >Ver Mais! </Link>
           </div>
         </div>
       </div>

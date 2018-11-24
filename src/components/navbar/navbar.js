@@ -82,6 +82,9 @@ class Navbar extends Component {
                   Sobre
                 </Link>
               </li>
+              <li>
+                <h4 className="app-title orange-text text-darken-4 brand-logo center">Banquinha</h4>
+              </li>
             </ul>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.isLogged()}
